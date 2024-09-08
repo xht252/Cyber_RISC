@@ -9,7 +9,7 @@
 ##### 一、指令基本格式
 *如下图所示为六种指令格式*
   
-![type](picture\Instruction_type.png)
+![type](picture/Instruction_type.png)
   - <font size=2.5>***opcode :指令操作码***</font>
   - <font size=2.5>***imm：代码立即数***</font>
   - <font size=2.5>***func3和funct7：代表指令对应的功能***</font>
