@@ -18,6 +18,7 @@ int PC; // 程序计数器
 // 初始化寄存器
 void init_reg()
 {
+    memset(reg, 0, sizeof(reg));
     // 用于寄存器名到寄存器编号的映射
     // 解析指令时使用
     reg_map["zero"]= 0;
