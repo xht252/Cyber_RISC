@@ -11,7 +11,10 @@ Time: 2024-09-08
 
 using namespace std;
 
+void Get_Instruction();
+
+
 int main()
 {
-    
+    cout << "fuck you!!!!!" << endl;
 }

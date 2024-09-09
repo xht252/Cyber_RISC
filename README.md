@@ -51,7 +51,7 @@
 #### 四、需要实现的指令
 
 - ***R型指令***
-- 一共6条
+- 一共9条
   - <font size=2.5>***ADD 指令***
     - 格式：ADD rd,rs1,rs2 
     - 功能：rs1 + rs2 -> rd
@@ -63,16 +63,25 @@
     - 功能：rs1 ^ rs2 -> rd
   - <font size=2.5>***SRL 指令***
     - 格式：SRL rd,rs1,rs2 
-    - 功能：(逻辑左移)rs1 >> rs2 -> rd
+    - 功能：(逻辑右移)rs1 >> rs2 -> rd
   - <font size=2.5>***OR 指令***
     - 格式：OR rd,rs1,rs2 
     - 功能：rs1 | rs2 -> rd
   - <font size=2.5>***AND 指令***
     - 格式：AND rd,rs1,rs2 
     - 功能：rs1 & rs2 -> rd
+  - <font size=2.5>***SLL 指令***
+    - 格式：SLL rd,rs1,rs2
+    - 功能：(逻辑左移)rs1 << rs2 -> rd
+  - <font size=2.5>***SLT 指令***
+    - 格式：SLT rd,rs1,rs2
+    - 功能：有符号数进行比较，若前者小于后者，那么将1保存到地址为rd的通用寄存器
+  - <font size=2.5>***SRA 指令***
+    - 格式：SRA rd,rs1,rs2
+    - 功能：右移算术逻辑运算
 
 - ***I型指令***
-- 一共是3条
+- 一共是9条
   - <font size=2.5>***LB 指令***
     - 格式：LB rd,imm(rs1)
     - 解释：从存储器种读出1个字节的数据按符号位扩展后，送入rd
@@ -85,6 +94,24 @@
     - 格式：LW rd,imm(rs1)
     - 解释：从存储器种读出4个字节的数据按符号位扩展后，送入rd
     - 功能：M[rs1 + imm] -> rd
+  - <font size=2.5>***LBU 指令***
+    - 格式：LBU rd,imm(rs1)
+    - 功能：取无符号1字节
+  - <font size=2.5>***LHU 指令***
+    - 格式：LHU rd,imm(rs1)
+    - 功能：取无符号2字节
+  - <font size=2.5>***ADDI 指令***
+    - 格式：ADDI rd,rs1,imm
+    - 功能：rs1 + imm -> rd
+  - <font size=2.5>***XORI 指令***
+    - 格式：XORI rd,rs1,imm
+    - 功能：rs1 ^ imm -> rd
+  - <font size=2.5>***ANDI 指令***
+    - 格式：ANDI rd,rs1,imm
+    - 功能：rs1 & imm -> rd
+  - <font size=2.5>***ORI 指令***
+    - 格式：ORI rd,rs1,imm
+    - 功能：rs1 | imm -> rd
 
 - ***S型指令***
 - 一共是3条
