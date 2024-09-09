@@ -16,5 +16,5 @@ void Get_Instruction();
 
 int main()
 {
-    cout << "fuck you!!!!!" << endl;
+    
 }
