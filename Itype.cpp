@@ -25,12 +25,14 @@ class Itype
         static void ORI(int rd, int rs1, int imm);
 };
 
+
 void Itype::LB(int rd, int rs1, int imm)
 {
     // 从存储器种读出1个字节的数据按符号位扩展后，送入rd
     reg[rd] = (char)(M[reg[rs1] + imm]);
     PC += 4;
 }
+
 
 void Itype::LH(int rd, int rs1, int imm)
 {
@@ -40,6 +42,7 @@ void Itype::LH(int rd, int rs1, int imm)
     reg[rd] = (tmp1 << 8) | tmp; // 小端存储
     PC += 4;
 }
+
 
 void Itype::LW(int rd, int rs1, int imm)
 {
@@ -51,6 +54,7 @@ void Itype::LW(int rd, int rs1, int imm)
     reg[rd] = (tmp3 << 24) | (tmp2 << 16) | (tmp1 << 8) | tmp;
     PC += 4;
 }
+
 
 void Itype::LBU(int rd, int rs1, int imm)
 {
