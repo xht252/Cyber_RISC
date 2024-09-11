@@ -129,21 +129,25 @@
     - 功能：rs1 -> M[rs2 + imm]
 
 - ***B型指令***
-- 一共是4条
+- 一共是6条
   - <font size=2.5>***BEQ 指令***
     - 格式：BEQ rs1, rs2, imm
     - 功能：rs1和rs2相等，则跳转PC+imm
   - <font size=2.5>***BNE 指令***
     - 格式：BNE rs1, rs2, imm
     - 功能：rs1和rs2不相等，则跳转PC+imm
-
-  - 注意：条件跳转未实现无符号数的跳转
   - <font size=2.5>***BGE 指令***
     - 格式：BGE rs1, rs2, imm
     - 功能：rs1大于等于rs2，则跳转PC+imm
   - <font size=2.5>***BLT 指令***
     - 格式：BLT rs1, rs2, imm
-    - - 功能：rs1小于rs2，则跳转PC+imm
+    - 功能：rs1小于rs2，则跳转PC+imm
+  - <font size=2.5>***BLTU 指令***
+    - 格式：BLTU rs1, rs2, imm
+    - 功能：无符号rs1小于无符号rs2，则跳转PC+imm
+  - <font size=2.5>***BGEU 指令***
+    - 格式：BGEU rs1, rs2, imm
+    - 功能：无符号rs1大于等于无符号rs2，则跳转PC+imm
 
 - ***U型指令***
 - 一共是2条
