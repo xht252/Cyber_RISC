@@ -1,8 +1,8 @@
-add a2,a3,a4 0
-sub a2,a3,a4 4
+add   a2  ,a3,a4
+sub a2 ,a3,a4
 # 标号
-L1:8
+L1:
 # 前导空格
-    add a2,a3,a4 12
-    sub a2,a3,a4 16
-L2:add a2,a3,a4 20 # 标号和指令在同一行，并且有注释
+    add a2  ,a3   ,a4
+    sub    a2,  a3,a4
+L2:add   a2,  a3,a4 # 标号和指令在同一行，并且有注释

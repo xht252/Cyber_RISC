@@ -1,11 +1,10 @@
 #pragma once
 #ifndef Rtype
+#define Rtype
 
 #include<iostream>
 
 #include "CommonOperate.h"
-
-using namespace std;
 
 class Rtype
 {

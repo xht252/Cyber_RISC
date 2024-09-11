@@ -4,7 +4,6 @@
 #include<iostream>
 #include "CommonOperate.h"
 
-using namespace std;
 
 class Btype
 {

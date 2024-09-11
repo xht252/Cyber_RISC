@@ -5,7 +5,6 @@
 
 #include "CommonOperate.h"
 
-using namespace std;
 
 class Itype
 {
