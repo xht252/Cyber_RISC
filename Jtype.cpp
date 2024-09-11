@@ -13,7 +13,6 @@ class Jtype
         static void JAL(int rd, int imm);
 };
 
-
 void Jtype::JAL(int rd, int imm)
 {
     reg[rd] = PC;
