@@ -58,6 +58,7 @@ void Itype::LW(int rd, int rs1, int imm)
 
 void Itype::LBU(int rd, int rs1, int imm)
 {
+    // 无符号从存储器种读出1个字节的数据送入rd
     reg[rd] = (unsigned char)(M[reg[rs1] + imm]);
     PC += 4;
 }
@@ -65,6 +66,7 @@ void Itype::LBU(int rd, int rs1, int imm)
 
 void Itype::LHU(int rd, int rs1, int imm)
 {
+    // 无符号从存储器种读出2个字节的数据送入rd
     unsigned char tmp = (unsigned char)M[reg[rs1] + imm];
     unsigned char tmp1 = (unsigned char)M[reg[rs1] + imm + 1];
     reg[rd] = (unsigned short int)(tmp1 << 8) | tmp;
@@ -74,6 +76,7 @@ void Itype::LHU(int rd, int rs1, int imm)
 
 void Itype::ADDI(int rd, int rs1, int imm)
 {
+    // 立即数加法
     reg[rd] = reg[rs1] + imm;
     PC += 4;
 }
@@ -81,6 +84,7 @@ void Itype::ADDI(int rd, int rs1, int imm)
 
 void Itype::XORI(int rd, int rs1, int imm)
 {
+    // 立即数异或
     reg[rd] = reg[rs1] ^ imm;
     PC += 4;
 }
@@ -88,6 +92,7 @@ void Itype::XORI(int rd, int rs1, int imm)
 
 void Itype::ANDI(int rd, int rs1, int imm)
 {
+    // 立即数与
     reg[rd] = reg[rs1] & imm;
     PC += 4;
 }
@@ -95,6 +100,7 @@ void Itype::ANDI(int rd, int rs1, int imm)
 
 void Itype::ORI(int rd, int rs1, int imm)
 {
+    // 立即数或
     reg[rd] = reg[rs1] | imm;
     PC += 4;
 }
