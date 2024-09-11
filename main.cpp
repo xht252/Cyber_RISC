@@ -12,6 +12,7 @@ Time: 2024-09-08
 using namespace std;
 
 void Get_Instruction(string path);
+void ParseInstruction(vector<string> instruction);
 
 int main()
 {
@@ -34,8 +35,12 @@ void Get_Instruction(string path)
         instruction.push_back(line);
     infile.close();
 
-    // for(auto i : instruction)
-    //     cout << i << endl;
+    // 解析指令
+    ParseInstruction(instruction);
+}
 
-    
+
+void ParseInstruction(vector<string> instruction)
+{
+
 }
