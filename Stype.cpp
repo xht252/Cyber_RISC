@@ -18,6 +18,7 @@ class Stype
 
 void Stype::SB(int rs1, int rs2, int imm)
 {
+    // 寄存器间接寻址
     M[reg[rs2] + imm] = (char)reg[rs1];
     PC += 4;
 }

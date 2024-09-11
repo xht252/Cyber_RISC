@@ -12,6 +12,12 @@ Time: 2024-09-08
 #include <vector>
 
 #include "CommonOperate.h"
+#include "Rtype.cpp"
+#include "Utype.cpp"
+#include "Itype.cpp"
+#include "Stype.cpp"
+#include "Jtype.cpp"
+#include "Btype.cpp"
 
 using namespace std;
 
@@ -116,5 +122,77 @@ void ParseInstruction(string I)
         else if(op == "XOR") Rtype::XOR(rd, rs1, rs2);
         else if(op == "SRL") Rtype::SRL(rd, rs1, rs2);
         else if(op == "OR") Rtype::OR(rd, rs1, rs2);
+        else if(op == "AND") Rtype::AND(rd, rs1, rs2);
+        else if(op == "SLL") Rtype::SLL(rd, rs1, rs2);
+        else if(op == "SLT") Rtype::SLT(rd, rs1, rs2);
+        else if(op == "SRA") Rtype::SRA(rd, rs1, rs2);
     }
+    else if (type[0] == 'I')
+    {
+        // op rd rs1 imm
+        int rd = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int rs1 = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int imm = stoi(I);
+
+        if(op == "LB") Itype::LB(rd, rs1, imm);
+        else if(op == "LH") Itype::LH(rd, rs1, imm);
+        else if(op == "LW") Itype::LW(rd, rs1, imm);
+        else if(op == "LBU") Itype::LBU(rd, rs1, imm);
+        else if(op == "LHU") Itype::LHU(rd, rs1, imm);  
+        else if(op == "ADDI") Itype::ADDI(rd, rs1, imm);
+        else if(op == "XORI") Itype::XORI(rd, rs1, imm);
+        else if(op == "ANDI") Itype::ANDI(rd, rs1, imm);
+        else if(op == "ORI") Itype::ORI(rd, rs1, imm);
+    }
+    else if (type[0] == 'S')
+    {
+        // op rs1 rs2 imm
+        int rs1 = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int rs2 = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int imm = stoi(I);
+
+        if(op == "SB") Stype::SB(rs1, rs2, imm);
+        else if(op == "SH") Stype::SH(rs1, rs2, imm);
+        else if(op == "SW") Stype::SW(rs1, rs2, imm);
+    }
+    else if (type[0] == 'B')
+    {
+        // op rs1, rs2, imm
+        int rs1 = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int rs2 = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int imm = Label[I] - PC;
+
+        if(op == "BEQ") Btype::BEQ(rs1, rs2, imm);
+        else if(op == "BNE") Btype::BNE(rs1, rs2, imm);
+        else if(op == "BLT") Btype::BLT(rs1, rs2, imm);
+        else if(op == "BGE") Btype::BGE(rs1, rs2, imm);
+        else if(op == "BGEU") Btype::BGEU(rs1, rs2, imm);
+        else if(op == "BLTU") Btype::BLTU(rs1, rs2, imm);
+    }
+    else if(type[0] == 'U')
+    {
+        // op rd imm
+        int rd = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int imm = stoi(I);
+
+        if(op == "LUI") Utype::LUI(rd, imm);
+        else if(op == "AUIPC") Utype::AUIPC(rd, imm);
+    }
+    else 
+    {
+        // op rd imm
+        int rd = reg_map[I.substr(0 , I.find(","))];
+        I = I.substr(I.find(",") + 1);
+        int imm = Label[I] - PC;
+
+        if(op == "JAL") Jtype::JAL(rd, imm);
+    }
+    
 }

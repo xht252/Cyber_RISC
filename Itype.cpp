@@ -1,7 +1,6 @@
 #pragma once 
 #ifndef Itype
 
-#include<iostream>
 
 #include "CommonOperate.h"
 

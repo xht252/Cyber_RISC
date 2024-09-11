@@ -1,8 +1,5 @@
 #pragma once
 #ifndef Rtype
-#define Rtype
-
-#include<iostream>
 
 #include "CommonOperate.h"
 
@@ -13,15 +10,15 @@ class Rtype
         一共有9条
     */
     public:
-      static void ADD(int rd, int rs1, int rs2); // 32位加法
-      static void SUB(int rd, int rs1, int rs2); // 32位减法
-      static void XOR(int rd, int rs1, int rs2); // 逻辑异或
-      static void SRL(int rd, int rs1, int rs2); // 逻辑右移
-      static void OR(int rd, int rs1, int rs2); // 逻辑或
-      static void AND(int rd, int rs1, int rs2); // 逻辑与
-      static void SLL(int rd, int rs1, int rs2); // 逻辑左移
-      static void SLT(int rd, int rs1, int rs2); // 比较
-      static void SRA(int rd, int rs1, int rs2); // 逻辑右移
+        static void ADD(int rd, int rs1, int rs2); // 32位加法
+        static void SUB(int rd, int rs1, int rs2); // 32位减法
+        static void XOR(int rd, int rs1, int rs2); // 逻辑异或
+        static void SRL(int rd, int rs1, int rs2); // 逻辑右移
+        static void OR(int rd, int rs1, int rs2); // 逻辑或
+        static void AND(int rd, int rs1, int rs2); // 逻辑与
+        static void SLL(int rd, int rs1, int rs2); // 逻辑左移
+        static void SLT(int rd, int rs1, int rs2); // 比较
+        static void SRA(int rd, int rs1, int rs2); // 逻辑右移
 };
 
 void Rtype::ADD(int rd, int rs1, int rs2)
