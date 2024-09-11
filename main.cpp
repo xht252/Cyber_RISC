@@ -11,10 +11,31 @@ Time: 2024-09-08
 
 using namespace std;
 
-void Get_Instruction();
-
+void Get_Instruction(string path);
 
 int main()
 {
+    Get_Instruction("D:\\pro_of_program\\RISC-V\\Cyber_RISC\\ok.txt");
+}
+
+
+void Get_Instruction(string path)
+{
+    vector<string>instruction;
+    ifstream infile;
+    infile.open(path);
+    if (!infile.is_open())
+    {
+        cout << "open file failed!" << endl;
+    }
+    string line;
+
+    while(getline(infile, line))
+        instruction.push_back(line);
+    infile.close();
+
+    // for(auto i : instruction)
+    //     cout << i << endl;
+
     
 }
