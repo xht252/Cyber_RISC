@@ -12,6 +12,7 @@ using namespace std;
 // 32位机 int即可
 int reg[32] = {0}; // RISC-V 32个通用寄存器
 unordered_map<string , int> reg_map; // 用于寄存器名到寄存器编号的映射
+unordered_map<int , string> reg_map2; // 用于寄存器编号到寄存器名的映射
 map<int , char>M; // 用于模拟存储器数据
 int PC; // 程序计数器
 unordered_map<string , int>Label; // 存储标号和对应的位置
@@ -20,6 +21,8 @@ unordered_map<string , string>TYPE; // 指令类型
 // 初始化寄存器
 void init_reg()
 {
+    reg_map2.clear();reg_map.clear();
+    M.clear();Label.clear();TYPE.clear();
     memset(reg, 0, sizeof(reg));
     // 用于寄存器名到寄存器编号的映射
     // 解析指令时使用
@@ -55,6 +58,9 @@ void init_reg()
     reg_map ["t4"] = 29;
     reg_map ["t5"] = 30;
     reg_map ["t6"] = 31;
+
+    for(auto i : reg_map)
+        reg_map2[i.second] = i.first;
 }
 
 void init_type()

@@ -36,6 +36,7 @@ int check(string s)
 {
     for(auto i : s)
     {
+        // 检查当前行是否有指令
         if(isalnum(i))
             return i;
     }
@@ -63,7 +64,7 @@ void Get_Instruction(string path)
         if (line.find('#') != string::npos) // 有注释
             line = line.substr(0 , line.find("#"));
 
-        if(line.size() == 0) // 空行
+        if(line.size() == 0 || (line.size() == 1 && (line[0] == '\0' || line[0] == ' ' || line[0] == '\n'))) // 空行
             continue;
 
         if(line.find(':') != string::npos) // 有标号
@@ -75,8 +76,9 @@ void Get_Instruction(string path)
             {
                 // 可能标号和代码在同一行
                 instruction.push_back(make_pair(t, start_pos));
+                start_pos += 4; // 32位按字节编址
             }
-            start_pos += 4; // 32位按字节编址
+            // else Label[s] = start_pos + 4; // 当前指令的下一条指令
         }
         else
         {
@@ -86,9 +88,28 @@ void Get_Instruction(string path)
     }
     infile.close();
 
+    // for(auto i : instruction)
+    //     cout << i.second << ": " << i.first << endl;
+
+    // for(auto i : Label)
+    //     cout << i.first << ": " << i.second << endl;
     // 解析指令
-    for(auto i : instruction)
-        ParseInstruction(i.first);
+    while(1)
+    {
+        for(int i = 0;i < instruction.size();i ++)
+            if(instruction[i].second == PC) 
+            {
+                ParseInstruction(instruction[i].first);
+            }
+        
+        if(PC >= start_pos) break;
+    }
+
+    for(int i = 0;i < 32;i ++)
+        cout << reg_map2[i] << ": " << reg[i] << endl;
+
+    for(auto i : M)
+        cout << i.first << ": " << i.second << endl;
 }
 
 

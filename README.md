@@ -83,22 +83,22 @@
 - ***I型指令***
 - 一共是9条
   - <font size=2.5>***LB 指令***
-    - 格式：LB rd,imm(rs1)
+    - 格式：LB rd,rs1,imm
     - 解释：从存储器种读出1个字节的数据按符号位扩展后，送入rd
     - 功能：M[rs1 + imm] -> rd
   - <font size=2.5>***LH 指令***
-    - 格式：LH rd,imm(rs1)
+    - 格式：LH rd,rs1,imm
     - 解释：从存储器种读出2个字节的数据按符号位扩展后，送入rd
     - 功能：M[rs1 + imm] -> rd
   - <font size=2.5>***LW 指令***
-    - 格式：LW rd,imm(rs1)
+    - 格式：LW rd,rs1,imm
     - 解释：从存储器种读出4个字节的数据按符号位扩展后，送入rd
     - 功能：M[rs1 + imm] -> rd
   - <font size=2.5>***LBU 指令***
-    - 格式：LBU rd,imm(rs1)
+    - 格式：LBU rd,rs1,imm
     - 功能：取无符号1字节
   - <font size=2.5>***LHU 指令***
-    - 格式：LHU rd,imm(rs1)
+    - 格式：LHU rd,rs1,imm
     - 功能：取无符号2字节
   - <font size=2.5>***ADDI 指令***
     - 格式：ADDI rd,rs1,imm
@@ -116,15 +116,15 @@
 - ***S型指令***
 - 一共是3条
   - <font size=2.5>***SB 指令***
-    - 格式：SB rs1, imm(rs2)
+    - 格式：SB rs1,rs2,imm
     - 解释：存储字节，将通用寄存器里的低[7:0]位，存储到特定的地址单元
     - 功能：rs1 -> M[rs2 + imm]
   - <font size=2.5>***SH 指令***
-    - 格式：SH rs1, imm(rs2)
+    - 格式：SH rs1,rs2,imm
     - 解释：存储字节，将通用寄存器里的低[15:0]位，存储到特定的地址单元
     - 功能：rs1 -> M[rs2 + imm]
   - <font size=2.5>***SW 指令***
-    - 格式：SW rs1, imm(rs2)
+    - 格式：SW rs1,rs2,imm
     - 解释：存储字节，将通用寄存器里的低[31:0]位，存储到特定的地址单元
     - 功能：rs1 -> M[rs2 + imm]
 

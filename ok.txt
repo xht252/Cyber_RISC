@@ -1,8 +1,12 @@
-add   a2  ,a3,a4
-sub a2 ,a3,a4
-# 标号
-L1:
-# 前导空格
-    add a2  ,a3   ,a4
-    sub    a2,  a3,a4
-L2:add   a2,  a3,a4 # 标号和指令在同一行，并且有注释
+# 1 到 100 累加
+addi t0,zero,1 # t0 = 1 , 循环计数器为1
+addi t1,zero,101 # t1 = 100 , 循环次数为100 (do while)
+addi t2,zero,0 # t2 = 0 , 累加器为0
+addi t3,zero,1000 # t3 = 1000 , 存入内存单元1000
+
+loop:
+    add t2,t2,t0 # 累加器加上当前循环计数器值
+    addi t0,t0,1 # 循环计数器自增1
+    bne t0,t1,loop # 循环次数未达到100，则继续循环
+
+sh t2,t3,0
