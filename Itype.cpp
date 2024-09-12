@@ -27,7 +27,7 @@ class Itype
 void Itype::LB(int rd, int rs1, int imm)
 {
     // 从存储器种读出1个字节的数据按符号位扩展后，送入rd
-    reg[rd] = (char)(M[reg[rs1] + imm]);
+    reg[rd] = (unsigned char)(M[reg[rs1] + imm]);
     PC += 4;
 }
 
@@ -37,9 +37,12 @@ void Itype::LH(int rd, int rs1, int imm)
     // 从存储器种读出2个字节的数据按符号位扩展后，送入rd
     char tmp = M[reg[rs1] + imm];
     char tmp1 = M[reg[rs1] + imm + 1]; // 高地址在高位
-    reg[rd] = (tmp1 << 8) | tmp; // 小端存储
+    // cout << (int)tmp << " " << (int)tmp1 << endl;
+    int tmp2 = ((unsigned char)tmp1 << 8) | (unsigned char)tmp; // 小端存储
+    reg[rd] = tmp2;
     PC += 4;
 }
+
 
 
 void Itype::LW(int rd, int rs1, int imm)
@@ -49,7 +52,10 @@ void Itype::LW(int rd, int rs1, int imm)
     char tmp1 = M[reg[rs1] + imm + 1];
     char tmp2 = M[reg[rs1] + imm + 2];
     char tmp3 = M[reg[rs1] + imm + 3];
-    reg[rd] = (tmp3 << 24) | (tmp2 << 16) | (tmp1 << 8) | tmp;
+    unsigned short int tmp4 = (tmp1 << 8) | tmp;
+    short int tmp5 = (tmp3 << 8) | tmp2;
+    int tmp6 = (tmp5 << 16) | tmp4;
+    reg[rd] = tmp6;
     PC += 4;
 }
 

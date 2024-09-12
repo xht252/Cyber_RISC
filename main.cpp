@@ -10,6 +10,8 @@ Time: 2024-09-08
 #include <cctype>
 #include <algorithm>
 #include <vector>
+#include <bitset>
+#include <stdlib.h>
 
 #include "CommonOperate.h"
 #include "Rtype.cpp"
@@ -105,11 +107,11 @@ void Get_Instruction(string path)
         if(PC >= start_pos) break;
     }
 
-    for(int i = 0;i < 32;i ++)
-        cout << reg_map2[i] << ": " << reg[i] << endl;
+    // for(int i = 0;i < 32;i ++)
+    //     cout << reg_map2[i] << ": " << reg[i] << endl;
 
-    for(auto i : M)
-        cout << i.first << ": " << i.second << endl;
+    // for(auto i : M)
+    //     cout << i.first << ": " << (int)i.second << endl;
 }
 
 
@@ -120,7 +122,7 @@ void ParseInstruction(string I)
     string op = I.substr(0, I.find(' ')); // 去除操作码
     I = I.substr(I.find(' ') + 1);
     string tmp = "";
-    for(int i = 0;i < I.size();i ++)
+    for(int i = 0;i < (int)I.size();i ++)
         if(I[i] == ' ') continue;
         else tmp.push_back(I[i]);
 

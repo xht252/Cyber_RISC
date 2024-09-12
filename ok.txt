@@ -10,3 +10,4 @@ loop:
     bne t0,t1,loop # 循环次数未达到100，则继续循环
 
 sh t2,t3,0
+lh t4,t3,0
