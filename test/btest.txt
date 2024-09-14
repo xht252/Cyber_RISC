@@ -1,0 +1,21 @@
+addi t1,zero,40 # t1 = 30
+addi t2,zero,40 # t2 = 40
+
+bge t1,t2,ggee # t1 >= t2 跳ggee
+blt t1,t2,lltt # t1 < t2 跳lltt
+
+ggee: # 大于等于
+    beq t1,t2,ggee1 # t1 == t2 跳ggee1
+    addi a0,zero,0 # t1 > t2 a0 = 0
+    jal a1,end # 结束
+
+ggee1:
+    addi a0,zero,1 # t1 == t2 a0 = 1
+    jal a1,end # 结束
+
+lltt: # 小于
+    addi a0,zero,2 # t1 < t2 a0 = 2
+    jal a1,end # 结束
+
+end:
+    addi a2,zero,9999 # a2 = 9999

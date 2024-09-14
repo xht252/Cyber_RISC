@@ -30,7 +30,7 @@ int main()
 {
     init_reg(); // 初始化寄存器
     init_type(); // 初始化指令类型
-    Get_Instruction("D:\\pro_of_program\\RISC-V\\Cyber_RISC\\test\\sum.txt");
+    Get_Instruction("D:\\pro_of_program\\RISC-V\\Cyber_RISC\\test\\btest.txt");
 
 }
 
@@ -106,9 +106,11 @@ void Get_Instruction(string path)
         
         if(PC >= start_pos) break;
     }
+    
     for(int i = 0;i < 32;i ++)
         cout << reg_map2[i] << ": " << reg[i] << endl;
 
+    cout << endl;
     for(auto i : M)
         cout << i.first << ": " << (int)i.second << endl;
 }
