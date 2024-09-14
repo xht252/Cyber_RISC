@@ -26,7 +26,6 @@ void Stype::SB(int rs1, int rs2, int imm)
 void Stype::SH(int rs1, int rs2, int imm)
 {
     short tmp = (short)reg[rs1];
-    cout << tmp << endl;
     char lower = (char)tmp;
     char upper = (char)(tmp >> 8);
     M[reg[rs2] + imm] = lower; // 小端存储 低地址存放在低位

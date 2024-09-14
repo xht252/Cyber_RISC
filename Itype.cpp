@@ -52,10 +52,7 @@ void Itype::LW(int rd, int rs1, int imm)
     char tmp1 = M[reg[rs1] + imm + 1];
     char tmp2 = M[reg[rs1] + imm + 2];
     char tmp3 = M[reg[rs1] + imm + 3];
-    unsigned short int tmp4 = (tmp1 << 8) | tmp;
-    short int tmp5 = (tmp3 << 8) | tmp2;
-    int tmp6 = (tmp5 << 16) | tmp4;
-    reg[rd] = tmp6;
+    reg[rd] = ((unsigned char)tmp3 << 24) | ((unsigned char)tmp2 << 16) | ((unsigned char)tmp1 << 8) | (unsigned char)tmp;
     PC += 4;
 }
 
