@@ -28,10 +28,32 @@ void ParseInstruction(string I);
 
 int main()
 {
+    // int x = 15621;
+    // string hex = dec_to_hex(x);
+    // cout << hex << endl;
+    // string bin = dec_to_bin(x);
+    // cout << bin << endl;
+
+    // string w = hex_to_bin(hex);
+    // cout << w << endl;
+
+    // int y = hex_to_dec(hex);
+    // cout << y << endl;
+    // int z = bin_to_dec(bin);
+    // cout << z << endl;
+
     init_reg(); // 初始化寄存器
     init_type(); // 初始化指令类型
     Get_Instruction("D:\\pro_of_program\\RISC-V\\Cyber_RISC\\test\\btest.txt");
 
+    for(int i = 0;i < 32;i ++)
+        cout << reg_map2[i] << ": " << reg[i] << endl;
+
+    cout << endl;
+    for(auto i : M)
+        cout << i.first << ": " << (int)i.second << endl;
+
+    return 0;
 }
 
 int check(string s)
@@ -106,13 +128,6 @@ void Get_Instruction(string path)
         
         if(PC >= start_pos) break;
     }
-    
-    for(int i = 0;i < 32;i ++)
-        cout << reg_map2[i] << ": " << reg[i] << endl;
-
-    cout << endl;
-    for(auto i : M)
-        cout << i.first << ": " << (int)i.second << endl;
 }
 
 
