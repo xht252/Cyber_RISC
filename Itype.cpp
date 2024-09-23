@@ -21,7 +21,6 @@ class Itype
         static void XORI(int rd, int rs1, int imm);
         static void ANDI(int rd, int rs1, int imm);
         static void ORI(int rd, int rs1, int imm);
-
         static void SLTI(int rd, int rs1, int imm);
         static void SLTIU(int rd, int rs1, int imm);
         static void SLLI(int rd, int rs1, int imm);
@@ -131,6 +130,34 @@ void Itype::SLTIU(int rd, int rs1, int imm)
     else
         reg[rd] = 1; 
     PC += 4;
+}
+
+void Itype::SLLI(int rd, int rs1, int imm)
+{
+    // slli rd, rs1, imm
+    reg[rd] = reg[rs1] << imm;
+    PC += 4;
+}
+
+void Itype::SRLI(int rd, int rs1, int imm)
+{
+    // srli rd, rs1, imm
+    reg[rd] = (unsigned int)reg[rs1] >> imm;
+    PC += 4;
+}
+
+void Itype::SRAI(int rd, int rs1, int imm)
+{
+    // srai rd, rs1, imm
+    reg[rd] = reg[rs1] >> imm;
+    PC += 4;
+}
+
+void Itype::JALR(int rd, int rs1, int imm)
+{
+    // jalr rd, rs1 , imm
+    PC = reg[rs1] + imm;
+    reg[rd] = PC + 4;
 }
 
 
