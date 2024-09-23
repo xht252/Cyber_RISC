@@ -9,7 +9,7 @@ class Itype
 {
     /*
         I-type指令
-        一共有9条
+        一共有15条
     */
     public:
         static void LB(int rd, int rs1, int imm);
@@ -21,6 +21,13 @@ class Itype
         static void XORI(int rd, int rs1, int imm);
         static void ANDI(int rd, int rs1, int imm);
         static void ORI(int rd, int rs1, int imm);
+
+        static void SLTI(int rd, int rs1, int imm);
+        static void SLTIU(int rd, int rs1, int imm);
+        static void SLLI(int rd, int rs1, int imm);
+        static void SRLI(int rd, int rs1, int imm);
+        static void SRAI(int rd, int rs1, int imm);
+        static void JALR(int rd, int rs1, int imm);
 };
 
 
@@ -103,6 +110,26 @@ void Itype::ORI(int rd, int rs1, int imm)
 {
     // 立即数或
     reg[rd] = reg[rs1] | imm;
+    PC += 4;
+}
+
+void Itype::SLTI(int rd, int rs1, int imm)
+{
+    // slti rd, rs1, imm
+    if(reg[rs1] < imm)
+        reg[rd] = 1; 
+    else
+        reg[rd] = 0; 
+    PC += 4;
+}
+
+void Itype::SLTIU(int rd, int rs1, int imm)
+{
+    // sltiu rd, rs1, imm
+    if((unsigned int)reg[rs1] < (unsigned int)imm)
+        reg[rd] = 1; 
+    else
+        reg[rd] = 1; 
     PC += 4;
 }
 

@@ -7,7 +7,7 @@ class Rtype
 {
     /*
         R-type指令
-        一共有9条
+        一共有10条
     */
     public:
         static void ADD(int rd, int rs1, int rs2); // 32位加法
@@ -18,7 +18,8 @@ class Rtype
         static void AND(int rd, int rs1, int rs2); // 逻辑与
         static void SLL(int rd, int rs1, int rs2); // 逻辑左移
         static void SLT(int rd, int rs1, int rs2); // 比较
-        static void SRA(int rd, int rs1, int rs2); // 逻辑右移
+        static void SRA(int rd, int rs1, int rs2); // 算数右移
+        static void SLTU(int rd, int rs1, int rs2);
 };
 
 void Rtype::ADD(int rd, int rs1, int rs2)
@@ -82,6 +83,12 @@ void Rtype::SRA(int rd, int rs1, int rs2)
 {
     // 右移算术逻辑运算
     reg[rd] = reg[rs1] >> reg[rs2];
+    PC += 4;
+}
+
+void Rtype::SLTU(int rd, int rs1, int rs2)
+{
+    reg[rd] = (unsigned int)reg[rs1] < (unsigned int)reg[rs2];
     PC += 4;
 }
 
