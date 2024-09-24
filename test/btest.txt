@@ -1,4 +1,4 @@
-addi t1,zero,40 # t1 = 30
+addi t1,zero,50 # t1 = 30
 addi t2,zero,40 # t2 = 40
 
 bge t1,t2,ggee # t1 >= t2 跳ggee

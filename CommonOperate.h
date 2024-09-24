@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <bitset>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -91,19 +92,42 @@ void init_type()
 }
 
 
-string dec_to_hex(int dec)
-{
-    stringstream ss;
-    ss << hex << dec;
-    return ss.str();
-}
-
 string dec_to_bin(int dec)
 {
     stringstream ss;
     ss << bitset<32>(dec);
     return ss.str();
 }
+
+string dec_to_hex(int dec)
+{
+    string bin = dec_to_bin(dec);
+    int i = 0;
+    string hex;
+    while(i < bin.size())
+    {
+        string t = bin.substr(i, 4);
+        if(t == "0000") hex += "0";
+        else if(t == "0001") hex += "1";
+        else if(t == "0010") hex += "2";
+        else if(t == "0011") hex += "3";
+        else if(t == "0100") hex += "4";
+        else if(t == "0101") hex += "5";
+        else if(t == "0110") hex += "6";
+        else if(t == "0111") hex += "7";
+        else if(t == "1000") hex += "8";
+        else if(t == "1001") hex += "9";
+        else if(t == "1010") hex += "A";
+        else if(t == "1011") hex += "B";
+        else if(t == "1100") hex += "C";
+        else if(t == "1101") hex += "D";
+        else if(t == "1110") hex += "E";
+        else if(t == "1111") hex += "F";
+        i += 4;
+    }
+    return hex;
+}
+
 
 string hex_to_bin(string hex)
 {
